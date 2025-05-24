@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Superhero Search</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      display: none;
+      text-align: left;
+    }
+
+    #card h3 {
+      margin-top: 0;
+    }
+
+    #error, #loginError {
+      color: red;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="loginSection">
+      <h2>Login</h2>
+      <input type="text" id="userId" placeholder="Enter ID"><br>
+      <input type="password" id="password" placeholder="Enter Password"><br>
+      <button onclick="login()">Login</button>
+      <p id="loginError"></p>
+    </div>
+
+    <div id="searchSection" style="display:none;">
+      <h2>Search Superhero</h2>
+      <input type="text" id="searchInput" placeholder="Enter superhero name">
+      <button onclick="searchHero()">Search</button>
+      <p id="error"></p>
+      <div id="card"></div>
+    </div>
+  </div>
+
+  <script>
+    const superHeroes = {
+      "doremon": { name: "Doremon", realName: "Nobita Nobi", power: "Gadgets", team: "Friendship" },
+      "shinchain": { name: "Shinchain", realName: "Shinchain Nohara", power: "Naughty Child", team: "Kasukabe Defence Group" },
+      "bob the builder": { name: "Bob The Builder", realName: "Robert Bob McGraw Jr.", power: "Key features of bob", team: "Bobsville Builders" }
+    };
+
+    function login() {
+      const id = document.getElementById("userId").value;
+      const pass = document.getElementById("password").value;
+
+      if (id === "admin" && pass === "1234") {
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("searchSection").style.display = "block";
+      } else {
+        document.getElementById("loginError").textContent = "Invalid ID or Password";
+      }
+    }
+
+    function searchHero() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const card = document.getElementById("card");
+      const error = document.getElementById("error");
+
+      if (superHeroes[input]) {
+        const hero = superHeroes[input];
+        card.innerHTML = `
+          <h3>${hero.name}</h3>
+          <p><strong>Real Name:</strong> ${hero.realName}</p>
+          <p><strong>Power:</strong> ${hero.power}</p>
+          <p><strong>Team:</strong> ${hero.team}</p>
+        `;
+        card.style.display = "block";
+        error.textContent = "";
+      } else {
+        card.style.display = "none";
+        error.textContent = "Invalid superhero name";
+      }
+    }
+  </script>
+
+</body>
+</html>
