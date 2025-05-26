@@ -1,0 +1,128 @@
+/* ======= Modern & Clean Portfolio CSS ======= */
+
+:root {
+  --primary-color: #6c63ff;
+  --secondary-color: #f8f9fa;
+  --text-color: #333;
+  --bg-color: #fff;
+  --card-bg: #f2f2f2;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+
+/* ======= Card Styling ======= */
+.card {
+  background: var(--bg-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ======= Buttons ======= */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  background: #554bdb;
+}
+
+/* ======= Projects Section ======= */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-links a {
+  margin-right: 10px;
+  font-size: 14px;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* ======= Footer ======= */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--bg-color);
+  color: #888;
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+/* ======= Responsive Typography ======= */
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
